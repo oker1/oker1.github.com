@@ -3,4 +3,26 @@ layout: default
 title: Zsolt Takács (oker1)
 ---
 
-Hello octocat!
+<div class="row row_6_6">
+	<div class="column grid_6">
+		<h2>About</h2>
+		<p>
+			PHP dev at <a href="http://ustream.tv">ustream.tv</a>,
+				interested in software quality metrics, tests, cycling, vinyl.
+		</p>
+		<p>
+			<a href="http://twitter.com/oker1">@oker1</a><br/>
+			<a href="http://hu.linkedin.com/in/zsolttakacs">LinkedIn</a><br/>
+			<a href="http://facebook.com/zsolt.takacs">Facebook</a><br/>
+			<a href="http://oker.tumblr.com">Tumblr</a>
+		</p>
+	</div>
+	<div class="column grid_6">
+		<h2>Posts</h2>
+		{% for post in site.posts limit:5 %}
+		<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+		{{ post.content }}
+		<em>Posted on {{ post.date | date_to_long_string }}.</em>
+		{% endfor %}
+	</div>
+</div>

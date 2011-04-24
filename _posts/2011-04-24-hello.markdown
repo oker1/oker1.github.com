@@ -1,0 +1,6 @@
+---
+layout: post
+title: Hello Octocat!
+---
+As soon as github rolls out syntax highlighting in jekyll, I'll try to post here regularly about
+php.

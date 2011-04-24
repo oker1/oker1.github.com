@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<div class="row row_9_3">
+	<div class="column grid_9">
+		<h2>{{ page.title }}</h2>
+		{{ content }}
+	</div>
+	<div class="column grid_3"><h3>Recent Posts</h3>
+		{% for post in site.posts limit:5 %}
+		<a href="{{ post.url }}">{{ post.title }}</a>
+		<em> {{ post.date | date_to_long_string }}.</em>
+		{% endfor %}
+	</div>
+</div>
