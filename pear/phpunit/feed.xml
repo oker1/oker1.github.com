@@ -7,6 +7,17 @@
     </author>
 
     <entry>
+        <title>Etsy_PHPUnit_Extensions 0.1.2 (beta)</title>
+        <link href="http://zsolt.takacs.cc/pear/phpunit/get/Etsy_PHPUnit_Extensions-0.1.2.tgz" />
+        <id>Etsy_PHPUnit_Extensions-0.1.2</id>
+        <author>
+            <name>elblinkin</name>
+        </author>
+        <updated>2011-05-04T12:57:06-07:00</updated>
+        <content>
+            Etsy extensions for PHPUnit.
+        </content>
+    </entry>    <entry>
         <title>PHPUnit 3.5.13 (stable)</title>
         <link href="http://zsolt.takacs.cc/pear/phpunit/get/PHPUnit-3.5.13.tgz" />
         <id>PHPUnit-3.5.13</id>
