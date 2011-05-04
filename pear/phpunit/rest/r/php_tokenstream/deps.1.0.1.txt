@@ -1,0 +1,1 @@
+a:2:{s:8:"required";a:3:{s:3:"php";a:1:{s:3:"min";s:5:"5.2.7";}s:13:"pearinstaller";a:1:{s:3:"min";s:5:"1.9.2";}s:9:"extension";a:1:{s:4:"name";s:9:"tokenizer";}}s:8:"optional";a:1:{s:7:"package";a:3:{s:4:"name";s:12:"ConsoleTools";s:7:"channel";s:16:"components.ez.no";s:3:"min";s:3:"1.6";}}}
