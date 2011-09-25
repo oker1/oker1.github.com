@@ -8,4 +8,4 @@ One problem I ran into, and couldn't figure out from vagrant's documentation, wa
 
 The solution is to use File.expand_path in the base box's Vagrantfile for files included in the base box. An example to use a custom ssh key in the base box:
 
-<script src="https://gist.github.com/1240645.js?file=gistfile1.rb"></script>
+<script src="https://gist.github.com/1240645.js?file=gistfile1.rb" />
