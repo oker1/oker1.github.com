@@ -24,8 +24,20 @@ title: Zsolt Takács (oker1)
 		<div class="post">
 		<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
 		{{ post.content }}
-		<em>Posted on {{ post.date | date_to_long_string }}.</em>
+		<em><a href="{{ post.url }}#disqus_thread">{{ post.title }}</a>Posted on {{ post.date | date_to_long_string }}.</em>
 		</div>
 		{% endfor %}
 	</div>
 </div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'tzs-blog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
