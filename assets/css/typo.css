@@ -61,8 +61,8 @@ acronym     { border-bottom: 1px dotted #666; }
 address     { margin: 0 0 1.5em; font-style: italic; }
 del         { color:#666; }
 
-pre         { margin: 1.5em 0; white-space: pre; }
-pre,code,tt { font: 1em 'andale mono', 'lucida console', monospace; line-height: 1.5; }
+pre         { margin: 1.5em; white-space: pre; }
+pre,code,tt { font: 85% 'andale mono', 'lucida console', monospace; }
 
 
 /* Lists
@@ -113,7 +113,7 @@ caption     { background: #eee; }
 
 .quiet      { color: #666; }
 .loud       { color: #000; }
-.highlight  { margin: 0 0 1.5em 0; background: #eee; overflow: scroll; }
+.highlight  { margin: 0 0 1.5em 0; overflow: scroll; background-color: #002B36; }
 .added      { background:#060; color: #fff; }
 .removed    { background:#900; color: #fff; }
 
