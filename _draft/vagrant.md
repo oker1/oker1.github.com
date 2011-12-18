@@ -1,12 +1,12 @@
 ---
 layout: post
-title: CentOS with Vagrant and VeeWee
+title: Trying chef
 ---
-Some tips:
+I've wanted to try chef for a while, and I finally did it. I figured the best way to try it would be trying to
+replicate a complex setup I've already done with puppet. This way I don't have to figure out scripting and
+configuration issues, I can concentrate only on the actual configuration management, all in a well-know domain.
 
- * The prebuilt CentOS boxes have oudated guest additions (4.0), you'll have to build your own using VeeWee
- * The latest release of VeeWee is outdated, ssh won't work in the boxes (github changed urls for accessing files directly)
- * The CentOS templates are outdate in VeeWee
- * You'll have to check out VeeWee from source, both of the above are fixed in master
-
-After finding out all of these, I've managed to build a CentOS 6 basebox.
+I'm pretty sure my prior knowledge of puppet helped a lot, but taking it into account, I still feel that chef has a
+gentle learning curve compared to puppet. The order of the run list is fully deterministic and that makes things much
+easier than puppet's dependency declarations. I haven't seen the downside of this explicit ordering yet, but I haven't
+done a lot yet, so that might come up later.
