@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Vagrant - kényelmes virtualizált fejlesztőkörnyezet</title>
+
+		<meta name="description" content="Vagrant">
+		<meta name="author" content="Zsolt Takács">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="reveal.js-2.5.0/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal.js-2.5.0/css/theme/default.css" id="theme">
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js-2.5.0/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="reveal.js-2.5.0/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js-2.5.0/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style type="text/css">
+			.reveal h1 {
+				text-shadow: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+    <section>
+        <h1>
+            <font color="#40cb90">Vagrant</font>
+            </h1>
+<div>Kényelmes virtuális fejlesztőkörnyetek</div>
+        </section>
+        <section>
+            <h2>Motiváció</h2>
+<div>
+            <ul>
+<li class="fragment" data-fragment-index="0">
+<span style="text-align: center;">különböző függőségek projektenként</span>
+            <br>
+</li>
+<ul>
+            <li class="fragment" data-fragment-index="1">
+                <span style="text-align: center;">izolálni őket egymástól meg az asztalodtól</span>
+            </li>
+        </ul>
+<li class="fragment" data-fragment-index="2">
+        <span style="text-align: center;">éles környezethez hasonlítson</span>
+    </li>
+<li class="fragment" data-fragment-index="3">
+    <span style="text-align: center;">több gép / onboarding</span>
+</li>
+<li class="fragment" data-fragment-index="4">
+<span style="text-align: center;">reprodukálható</span>
+</li>
+<li class="fragment" data-fragment-index="5">
+<span style="text-align: center;">változások követhetőek</span>
+</li>
+</ul>
+</div>
+</section>
+<section>
+    <h2>Evolúció</h2>
+<div>
+    <ul>
+<li>vserver (pre-ustream)</li>
+<li>vbox image kézzel (ustream első hét)</li>
+<ul>
+<li>install.txt</li>
+<ul>
+<li>elavult</li>
+<li>nem futtatható egyből</li>
+</ul>
+<li>"pair installing"</li>
+</ul>
+<li>vbox gold image puppet-el előállítva (másfél évvel később)</li>
+<li>vagrant (pár hónappal később)</li>
+</ul>
+</div>
+</section>
+<section>
+    <h2>Vagrant sales pitch</h2>
+<div>git clone $project.git</div>
+<div>cd $project</div>
+<div>vagrant up</div>
+<div>hack away</div>
+<div>
+    <br>
+</div>
+</section>
+<section>
+    <h2>Vagrant valóság</h2>
+<div>
+    <ul>
+<li>korábban:</li>
+<ul>
+<li>[ruby install]</li>
+<li>virtualbox install</li>
+<li>gem install vagrant</li>
+</ul>
+<li>ma már csak virtualbox + vagrant installer</li>
+<li>ha sok fileból áll a projekt akkor +nfs server install</li>
+</ul>
+</div>
+</section>
+<section>
+    <h2>VAGRANT alapok</h2>
+    <div>[base] box</div>
+    <div>provisioner</div>
+    <div>[private|public] network</div>
+    <div>up|halt|destroy</div>
+</section>
+<section>
+    <h2>Vagrantfile</h2>
+    <aside class="notes">
+        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+    </aside>
+</section>
+<section>
+    <h2>Kultúra</h2>
+<div>
+    <ul>
+<li>"works on my machine" vége</li>
+<li>átlátható a konfiguráció</li>
+<li>eldobható -&gt; kísérletezés</li>
+<li>black box lehet pl. sitebuildereknek</li>
+<ul>
+<li>működőképesen kell tartani, hogy bízzanak benne</li>
+<li>tesztek! (test kitchen, cuken, etc)</li>
+<li>upgrade path, BC, kommunikáció</li>
+</ul>
+<li>host operációs rendszer kezelése</li>
+<ul>
+<li>az emberek bíznak az automatizálásban, érdemes itt is</li>
+<li>nálunk egy bash script installálja a chefet majd futtatja</li>
+<li>.gitconfig? .bashrc?</li>
+<li>boxen</li>
+</ul>
+</ul>
+</div>
+</section>
+<section>
+    <h2>Pluginek</h2>
+    <div>vagrant-cachier</div>
+    <div>nugrant</div>
+    <div>landrush</div>
+    <div>vagrant-lxc</div>
+</section>
+<section>
+    <h2>Egyéb felhasználás</h2>
+    <div>travis-ci</div>
+    <div>házon belül: vagrant-lxc + jenkins</div>
+</section>
+</div>
+
+
+		</div>
+
+		<script src="reveal.js-2.5.0/lib/js/head.min.js"></script>
+		<script src="reveal.js-2.5.0/js/reveal.min.js"></script>
+
+		<script>
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js-2.5.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js-2.5.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js-2.5.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js-2.5.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js-2.5.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js-2.5.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+	</body>
+</html>
