@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<server>
-  <name>zsolt.takacs.cc/pear/phpunit</name>
-  <summary>PHPUnit fork</summary>
-  <alias>phpunit</alias>
-  <url>http://zsolt.takacs.cc/pear/phpunit</url>
-</server>
