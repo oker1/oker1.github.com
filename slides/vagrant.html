@@ -40,124 +40,140 @@
 						<font color="#40cb90">Vagrant</font>
 					</h1>
 					<div>Kényelmes virtuális fejlesztőkörnyetek</div>
+					<aside class="notes">
+					</aside>
 				</section>
 				<section>
 					<h2>Motiváció</h2>
 					<div>
 						<ul>
 							<li class="fragment" data-fragment-index="0">
-							<span style="text-align: center;">különböző függőségek projektenként</span>
-										<br>
+								különböző függőségek projektenként
 							</li>
 							<ul>
 								<li class="fragment" data-fragment-index="1">
-									<span style="text-align: center;">izolálni őket egymástól meg az asztalodtól</span>
+									izolálni őket egymástól meg az asztalodtól
 								</li>
 							</ul>
 							<li class="fragment" data-fragment-index="2">
-								<span style="text-align: center;">éles környezethez hasonlítson</span>
+								éles környezethez hasonlítson
 							</li>
 							<li class="fragment" data-fragment-index="3">
-								<span style="text-align: center;">több gép / onboarding</span>
+								több gép / onboarding
 							</li>
 							<li class="fragment" data-fragment-index="4">
-								<span style="text-align: center;">reprodukálható</span>
+								reprodukálható
 							</li>
 							<li class="fragment" data-fragment-index="5">
-								<span style="text-align: center;">változások követhetőek</span>
+								változások követhetőek
 							</li>
 						</ul>
 					</div>
+					<aside class="notes">
+					</aside>
 				</section>
 				<section>
 					<h2>Evolúció</h2>
 					<div>
+						<ul>
+							<li class="fragment" data-fragment-index="0">vserver (pre-ustream)</li>
+							<li class="fragment" data-fragment-index="1">vbox image kézzel (ustream első hét)</li>
 							<ul>
-							<li>vserver (pre-ustream)</li>
-							<li>vbox image kézzel (ustream első hét)</li>
-							<ul>
-								<li>install.txt</li>
+								<li class="fragment" data-fragment-index="2">install.txt</li>
 								<ul>
-									<li>elavult</li>
-									<li>nem futtatható egyből</li>
+									<li class="fragment" data-fragment-index="3">elavult</li>
+									<li class="fragment" data-fragment-index="4">nem futtatható egyből</li>
 								</ul>
-								<li>"pair installing"</li>
+								<li class="fragment" data-fragment-index="5">"pair installing"</li>
 							</ul>
-							<li>vbox gold image puppet-el előállítva (másfél évvel később)</li>
-							<li>vagrant (pár hónappal később)</li>
+							<li class="fragment" data-fragment-index="6">vbox gold image puppet-el előállítva (másfél évvel később)</li>
+							<li class="fragment" data-fragment-index="7">vagrant (pár hónappal később)</li>
 						</ul>
 					</div>
+					<aside class="notes">
+					</aside>
 				</section>
 				<section>
 					<h2>Vagrant sales pitch</h2>
-					<div>git clone $project.git</div>
-					<div>cd $project</div>
-					<div>vagrant up</div>
-					<div>hack away</div>
+					<div class="fragment" data-fragment-index="0">git clone $project.git</div>
+					<div class="fragment" data-fragment-index="1">cd $project</div>
+					<div class="fragment" data-fragment-index="2">vagrant up</div>
+					<div class="fragment" data-fragment-index="3">hack away</div>
+					<aside class="notes">
+					</aside>
 				</section>
 				<section>
 					<h2>Vagrant valóság</h2>
 					<div>
 						<ul>
-							<li>korábban:</li>
+							<li class="fragment" data-fragment-index="0">korábban:</li>
 							<ul>
-								<li>[ruby install]</li>
-								<li>virtualbox install</li>
-								<li>gem install vagrant</li>
+								<li class="fragment" data-fragment-index="1">[ruby install]</li>
+								<li class="fragment" data-fragment-index="2">virtualbox install</li>
+								<li class="fragment" data-fragment-index="3">gem install vagrant</li>
 							</ul>
-							<li>ma már csak virtualbox + vagrant installer</li>
-							<li>ha sok fileból áll a projekt akkor +nfs server install</li>
+							<li class="fragment" data-fragment-index="4">ma már csak virtualbox + vagrant installer</li>
+							<li class="fragment" data-fragment-index="5">ha sok fileból áll a projekt akkor +nfs server install</li>
 						</ul>
 					</div>
+					<aside class="notes">
+					</aside>
 				</section>
 				<section>
 					<h2>VAGRANT alapok</h2>
-					<div>[base] box</div>
-					<div>provisioner</div>
-					<div>[private|public] network</div>
-					<div>up|halt|destroy</div>
+					<div class="fragment" data-fragment-index="1">[base] box</div>
+					<div class="fragment" data-fragment-index="2">provisioner</div>
+					<div class="fragment" data-fragment-index="3">[private|public] network</div>
+					<div class="fragment" data-fragment-index="4">up|halt|destroy</div>
+					<aside class="notes">
+					</aside>
 				</section>
 				<section>
 					<h2>Vagrantfile</h2>
 					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
 					</aside>
 				</section>
 				<section>
 					<h2>Kultúra</h2>
 					<div>
 						<ul>
-							<li>"works on my machine" vége</li>
-							<li>átlátható a konfiguráció</li>
-							<li>eldobható -&gt; kísérletezés</li>
-							<li>black box lehet pl. sitebuildereknek</li>
+							<li class="fragment" data-fragment-index="0">"works on my machine" vége</li>
+							<li class="fragment" data-fragment-index="1">átlátható a konfiguráció</li>
+							<li class="fragment" data-fragment-index="2">eldobható -&gt; kísérletezés</li>
+							<li class="fragment" data-fragment-index="3">black box lehet pl. sitebuildereknek</li>
 							<ul>
-								<li>működőképesen kell tartani, hogy bízzanak benne</li>
-								<li>tesztek! (test kitchen, cuken, etc)</li>
-								<li>upgrade path, BC, kommunikáció</li>
+								<li class="fragment" data-fragment-index="4">működőképesen kell tartani, hogy bízzanak benne</li>
+								<li class="fragment" data-fragment-index="5">tesztek! (test kitchen, cuken, etc)</li>
+								<li class="fragment" data-fragment-index="6">upgrade path, BC, kommunikáció</li>
 							</ul>
-							<li>host operációs rendszer kezelése</li>
+							<li class="fragment" data-fragment-index="7">host operációs rendszer kezelése</li>
 							<ul>
-								<li>az emberek bíznak az automatizálásban, érdemes itt is</li>
-								<li>nálunk egy bash script installálja a chefet majd futtatja</li>
-								<li>.gitconfig? .bashrc?</li>
-								<li>boxen</li>
+								<li class="fragment" data-fragment-index="8">az emberek bíznak az automatizálásban, érdemes itt is</li>
+								<li class="fragment" data-fragment-index="9">nálunk egy bash script installálja a chefet majd futtatja</li>
+								<li class="fragment" data-fragment-index="10">.gitconfig? .bashrc?</li>
+								<li class="fragment" data-fragment-index="11">boxen</li>
 							</ul>
 						</ul>
 					</div>
+					<aside class="notes">
+					</aside>
 				</section>
 				<section>
 					<h2>Pluginek</h2>
-					<div>vagrant-cachier</div>
-					<div>nugrant</div>
-					<div>landrush</div>
-					<div>vagrant-lxc</div>
+					<div class="fragment" data-fragment-index="0">vagrant-cachier</div>
+					<div class="fragment" data-fragment-index="1">nugrant</div>
+					<div class="fragment" data-fragment-index="2">landrush</div>
+					<div class="fragment" data-fragment-index="3">vagrant-lxc</div>
+					<aside class="notes">
+					</aside>
 				</section>
 				<section>
 					<h2>Egyéb felhasználás</h2>
-					<div>travis-ci</div>
-					<div>házon belül: vagrant-lxc + jenkins</div>
+					<div class="fragment" data-fragment-index="0">travis-ci</div>
+					<div class="fragment" data-fragment-index="1">házon belül: vagrant-lxc + jenkins</div>
 				</section>
+					<aside class="notes">
+					</aside>
 			</div>
 		</div>
 
