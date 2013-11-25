@@ -39,7 +39,7 @@
 					<h1>
 						<font color="#40cb90">Vagrant</font>
 					</h1>
-					<div>Kényelmes virtuális fejlesztőkörnyetek</div>
+					<div>Kényelmes virtuális fejlesztőkörnyezetek</div>
 					<aside class="notes">
 					</aside>
 				</section>
@@ -70,7 +70,13 @@
 						</ul>
 					</div>
 					<aside class="notes">
-						Miért érdemes futtatni egy vm-et a fejlesztéshez?
+						<pre>Wamp mamp macports/brew apt-get yum
+Miért érdemes futtatni egy vm-et a fejlesztéshez?
+Különböző függőségek pl. mysql, redis, nginx etc
+Fusson mind vagy indítgasd külön?
+Élessel egyező verziók, clusterek, etc
+Lehet több gépe egy embernek, többször csinálja meg ugyanazt?
+pl. bejött egy rabbitmq</pre>
 					</aside>
 				</section>
 				<section>
@@ -87,13 +93,13 @@
 								</ul>
 								<li class="fragment" data-fragment-index="5">"pair installing"</li>
 							</ul>
-							<li class="fragment" data-fragment-index="6">vbox gold image puppet-el előállítva (másfél évvel később)</li>
+							<li class="fragment" data-fragment-index="6">puppet vbox gold image (másfél évvel később)</li>
 							<li class="fragment" data-fragment-index="7">vagrant (pár hónappal később)</li>
 						</ul>
 					</div>
 					<aside class="notes">
-						vserver: elindítható chroot, kernel patchset.
-						gold image: os install nincs automatizálva, csak leírva wikiben
+						<pre>vserver: elindítható chroot, kernel patchset.
+gold image: os install nincs automatizálva, csak leírva wikiben</pre>
 					</aside>
 				</section>
 				<section>
@@ -116,24 +122,50 @@
 								<li class="fragment" data-fragment-index="3">gem install vagrant</li>
 							</ul>
 							<li class="fragment" data-fragment-index="4">ma már csak virtualbox + vagrant installer</li>
-							<li class="fragment" data-fragment-index="5">ha sok fileból áll a projekt akkor +nfs server install</li>
+							<li class="fragment" data-fragment-index="5">1000-10000 file-os projekt -> nfs server install</li>
 						</ul>
 					</div>
 					<aside class="notes">
+						<pre>
+Nálunk windows nem támogatott, az még extra szívás, pl nincs nfs.</pre>
 					</aside>
 				</section>
 				<section>
 					<h2>VAGRANT alapok</h2>
+					<div class="fragment" data-fragment-index="0">Vagrantfile</div>
 					<div class="fragment" data-fragment-index="1">[base] box</div>
 					<div class="fragment" data-fragment-index="2">provisioner</div>
-					<div class="fragment" data-fragment-index="3">[private|public] network</div>
-					<div class="fragment" data-fragment-index="4">up|halt|destroy</div>
+					<div class="fragment" data-fragment-index="3">forwarded port</div>
+					<div class="fragment" data-fragment-index="4">[private|public] network</div>
+					<div class="fragment" data-fragment-index="5">shared folder</div>
+					<div class="fragment" data-fragment-index="6">up|halt|destroy</div>
 					<aside class="notes">
+						<pre>
+base box: veewee/packer vagy kézzel
+private network: fix ip, vagy gépek közötti kommunikáció</pre>
 					</aside>
 				</section>
 				<section>
 					<h2>Vagrantfile</h2>
+					<pre>
+						<code>Vagrant.configure("2") do |config|
+  config.vm.box = "precise64"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
+  config.vm.network :forwarded_port, guest: 80, host: 8080
+
+  config.vm.network :private_network, ip: "192.168.33.10"
+
+  config.vm.synced_folder "../data", "/vagrant_data"
+
+  config.vm.provision "shell",
+    inline: "chef-solo -v | grep '10.18.2' || \
+    bash -c 'sudo apt-get update && \
+    sudo apt-get install -q -y chef=10.18.2-2'"
+end</code>
+					</pre>
 					<aside class="notes">
+						Ruby dsl
 					</aside>
 				</section>
 				<section>
@@ -159,6 +191,7 @@
 						</ul>
 					</div>
 					<aside class="notes">
+						boxen mac only hivatalosan
 					</aside>
 				</section>
 				<section>
@@ -168,6 +201,10 @@
 					<div class="fragment" data-fragment-index="2">landrush</div>
 					<div class="fragment" data-fragment-index="3">vagrant-lxc</div>
 					<aside class="notes">
+						<pre>cachier - mindent cachel, apt, rubygems, etc
+nugrant - user specifikus config (pl több cpu/ram ha akarsz)
+landrush - dns a vmek ip-ivel
+lxc - linuxon nagyon gyors, viszont máshol nem elérhető</pre>
 					</aside>
 				</section>
 				<section>
