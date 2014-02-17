@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Dynamo</title>
+
+		<meta name="description" content="Dynamo">
+		<meta name="author" content="Zsolt Takács">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="reveal.js-2.5.0/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal.js-2.5.0/css/theme/beige.css" id="theme">
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js-2.5.0/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="reveal.js-2.5.0/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js-2.5.0/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style type="text/css">
+			.reveal h1 {
+				text-shadow: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>
+						<font color="#40cb90">Dynamo</font>
+					</h1>
+					<div>Paper: 2007</div>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
+					<h2>CAP THEOREM</h2>
+					<div class="fragment" data-fragment-index="0">
+						<div>Consistency</div>
+						<div>Availability</div>
+						<div>Partition tolerance</div>
+						<div><br></div>
+					</div>
+					<div>Csak kettőt lehet választani (kivéve CA)</div>
+					<div><br></div>
+					<div>CP - rdbmsek, redis, mongodb, zk, rabbitmq</div>
+					<div>AP - dynamo, riak, cassandra, voldemort</div>
+
+					<aside class="notes">
+						<pre>Pontosabb definíciók, CA lehetetlen, könnyen belátható</pre>
+					</aside>
+				</section>
+				<section>
+					<h2>CP</h2>
+					<div>Mysql: MMM, Galera cluster</div>
+					</section>
+					<section>
+					<h2>WHY AP?</h2>
+					<div>wan replication/latency</div>
+					<div>
+					<br>
+					</div>
+
+					<aside class="notes">
+						<pre>Nem vagyok teljesen képben, nyugodtan javítsanak
+MMM: aszinkron replikáció, egy node írható, auto failover
+Hátrányok: aszinkron + failover = elveszhet visszaigazolt írás, írás nem skálázódik
+Galera: szinkron replikáció
+Hátrányok: írás nem skálázódik</pre>
+					</aside>
+				</section>
+				<section>
+					<h2>VERSIONING</h2>
+				</section>
+				<section>
+				<h2>REPLICATION</h2>
+					<div>N/R/W</div>
+					<div>
+					<br>
+					</div>
+				</section>
+				<section>
+					<h2>CRDTS</h2>
+					<div>Commutative</div>
+					<div>Replicated</div>
+					<div>Data</div>
+					<div>Type<br>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="reveal.js-2.5.0/lib/js/head.min.js"></script>
+		<script src="reveal.js-2.5.0/js/reveal.min.js"></script>
+
+		<script>
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js-2.5.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js-2.5.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js-2.5.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js-2.5.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js-2.5.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js-2.5.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+	</body>
+</html>
